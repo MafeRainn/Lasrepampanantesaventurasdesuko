@@ -47,6 +47,9 @@ TagManager:
   - name: caminar en frente
     uniqueID: 3540195865
     locked: 0
+  - name: decoracionatras
+    uniqueID: 4128537585
+    locked: 0
   - name: collision
     uniqueID: 969081135
     locked: 0
