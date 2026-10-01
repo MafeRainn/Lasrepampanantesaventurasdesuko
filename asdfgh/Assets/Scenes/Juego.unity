@@ -51032,8 +51032,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 179567615}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: voces.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].id
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: voces.Array.data[0].pitch
@@ -51065,7 +51073,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2beab731ba692c84ebabc2b8c82c13b3, type: 3}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: nodos.Array.data[1].textoDialogo
-      value: PORFIN, JAJAJAJA
+      value: Porfin, ahora, trata de skipear el siguiente texto rapidamente
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].textoDialogo
+      value: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       objectReference: {fileID: 0}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: nodos.Array.data[0].nombrePersonaje
@@ -51078,6 +51090,14 @@ PrefabInstance:
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: nodos.Array.data[1].nombrePersonaje
       value: Claudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].nombrePersonaje
+      value: Claudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].siguienteNodoID
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: voces.Array.data[0].nombrePersonaje
@@ -51100,8 +51120,24 @@ PrefabInstance:
       value: suko
       objectReference: {fileID: 0}
     - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[0].opciones.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].opciones.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].opciones.Array.data[0].texto
+      value: SI O NO
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: nodos.Array.data[1].opciones.Array.data[0].proximoNodoID
-      value: -1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[2].opciones.Array.data[0].proximoNodoID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8257464306944868157, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: m_Name
