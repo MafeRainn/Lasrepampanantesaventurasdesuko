@@ -50694,7 +50694,11 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 8481279776327467083
+    - rid: 8481279776327467083
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -51022,6 +51026,82 @@ PrefabInstance:
     - target: {fileID: 4392153629162984816, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: panelDialogo
+      value: 
+      objectReference: {fileID: 179567615}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[0].sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2beab731ba692c84ebabc2b8c82c13b3, type: 3}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[1].sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: a443093d4e38b3847baab456d8438668, type: 3}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[2].sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2beab731ba692c84ebabc2b8c82c13b3, type: 3}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[3].sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2beab731ba692c84ebabc2b8c82c13b3, type: 3}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[4].sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2beab731ba692c84ebabc2b8c82c13b3, type: 3}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[1].textoDialogo
+      value: PORFIN, JAJAJAJA
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[0].nombrePersonaje
+      value: Suko
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[0].siguienteNodoID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[1].nombrePersonaje
+      value: Claudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[0].nombrePersonaje
+      value: suko
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[1].nombrePersonaje
+      value: Claudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[2].nombrePersonaje
+      value: suko
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[3].nombrePersonaje
+      value: suko
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: voces.Array.data[4].nombrePersonaje
+      value: suko
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427545747434565735, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
+      propertyPath: nodos.Array.data[1].opciones.Array.data[0].proximoNodoID
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8257464306944868157, guid: c9aa91adf28428541ad8a5965e1cdc3c, type: 3}
       propertyPath: m_Name
