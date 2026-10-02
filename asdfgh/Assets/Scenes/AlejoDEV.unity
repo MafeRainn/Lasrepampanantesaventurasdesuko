@@ -53229,6 +53229,7 @@ GameObject:
   - component: {fileID: 2129798664}
   - component: {fileID: 2129798665}
   - component: {fileID: 2129798666}
+  - component: {fileID: 2129798667}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -53361,7 +53362,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3.25
+  m_Radius: 2
 --- !u!95 &2129798665
 Animator:
   serializedVersion: 7
@@ -53411,6 +53412,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2129798667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129798660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb0d9b29454b194f97b43cfc01f52f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZonaAtaque
+  speed: 2
+  stopDistance: 1
+  stopChasingOnExit: 1
+  nombreEscena: ZonaAtaque
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

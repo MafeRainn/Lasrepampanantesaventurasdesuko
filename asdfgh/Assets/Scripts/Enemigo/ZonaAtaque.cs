@@ -11,4 +11,5 @@ public class ZonaAtaque : Enemy
             SceneManager.LoadScene(nombreEscena);
         }
         }
+    
 }
