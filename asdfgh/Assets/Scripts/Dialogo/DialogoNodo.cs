@@ -3,15 +3,24 @@ using UnityEngine;
 [System.Serializable]
 public class Opcion
 {
-    public string texto; // Lo que ve el jugador
-    public int proximoNodoID; // A qué nodo va si elige esto
+    public string texto;
+    public int proximoNodoID;
 }
 
 [System.Serializable]
 public class DialogoNodo
 {
-    public int id; // ID único
-    public string nombrePersonaje; // Quién habla
-    public string textoDialogo; // Qué dice
-    public Opcion[] opciones; // Las respuestas posibles
+    public int id;
+    public string nombrePersonaje;
+    public string textoDialogo;
+    public Opcion[] opciones;
+    public int siguienteNodoID = -1;
+}
+
+[System.Serializable]
+public class VozPersonaje
+{
+    public string nombrePersonaje;
+    public AudioClip sonido;
+    public float pitch = 1f;
 }
