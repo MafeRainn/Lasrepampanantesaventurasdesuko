@@ -14,27 +14,25 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = moveInput * moveSpeed;
-    }
+        Vector2 direccion = DialogoManager.Activo ? Vector2.zero : moveInput;
 
+        rb.linearVelocity = direccion * moveSpeed;
+        animator.SetBool("Walking", direccion != Vector2.zero);
+    }
 
     public void Move(InputAction.CallbackContext context)
     {
-        animator.SetBool("Walking", true);
+        moveInput = context.ReadValue<Vector2>();
 
-        if (context.canceled)
+        animator.SetFloat("InputX", moveInput.x);
+        animator.SetFloat("InputY", moveInput.y);
+
+        if (moveInput != Vector2.zero)
         {
-            animator.SetBool("Walking", false);
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
         }
-        moveInput = context.ReadValue<Vector2>();
-        
-        animator.SetFloat("InputX", moveInput.x);
-        animator.SetFloat("InputY", moveInput.y);
     }
-
 }
