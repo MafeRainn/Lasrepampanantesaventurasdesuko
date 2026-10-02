@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 lastDirection = Vector2.down;  // hacia dónde mira al estar quieto
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
