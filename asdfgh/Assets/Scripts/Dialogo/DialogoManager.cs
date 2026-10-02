@@ -39,7 +39,7 @@ public class DialogoManager : MonoBehaviour
 
     private void Update()
     {
-        if (nodoActual == null || Time.frameCount == frameNodo || !PresionoAvanzar())
+        if (UiManager.Pausado || nodoActual == null || Time.frameCount == frameNodo || !PresionoAvanzar())
         {
             return;
         }
