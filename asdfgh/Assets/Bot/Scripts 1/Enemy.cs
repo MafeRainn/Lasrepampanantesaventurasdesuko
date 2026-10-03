@@ -4,25 +4,29 @@ public class Enemy : MonoBehaviour
 {
     [Header("Movimiento")]
     public float speed = 2f;
-    [Tooltip("Distancia (centro a centro) a la que se detiene cerca del jugador. " +
-             "Debe ser un poco mayor que la suma de los radios de los colliders.")]
+    [Tooltip("Distancia (centro a centro) a la que se detiene cerca del jugador.")]
     public float stopDistance = 1f;
 
     [Header("Persecución")]
-    [Tooltip("Si está activo, deja de perseguir cuando el jugador sale de la zona.")]
     public bool stopChasingOnExit = true;
+
+    [Header("Patrulla (opcional)")]
+    [SerializeField] private PatrolBehaviour patrol;
 
     private Rigidbody2D rb;
     private Animator animator;
     private Transform target;                      // se asigna al entrar al trigger
     private Vector2 moveDirection;
-    private Vector2 lastDirection = Vector2.down;  // hacia dónde mira al estar quieto
-
+    private Vector2 lastDirection = Vector2.down;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        // Si no se asignó en el Inspector, busca cualquier subclase de PatrolBehaviour
+        if (patrol == null)
+            patrol = GetComponent<PatrolBehaviour>();
     }
 
     private void Update()
@@ -31,22 +35,24 @@ public class Enemy : MonoBehaviour
 
         if (target != null)
         {
+            // Prioridad 1: perseguir al jugador
             Vector2 toTarget = target.position - transform.position;
 
             if (toTarget.magnitude > stopDistance)
-            {
                 moveDirection = toTarget.normalized;
-            }
             else
-            {
-                // Ya llegó: se queda quieto pero mirando al jugador
-                lastDirection = SnapToCardinal(toTarget);
-            }
+                lastDirection = SnapToCardinal(toTarget); // quieto, mirando al jugador
+        }
+        else if (patrol != null)
+        {
+            // Prioridad 2: patrullar
+            moveDirection = patrol.GetDirection(transform.position);
         }
 
         UpdateAnimation();
     }
 
+    // Único lugar donde se mueve el enemigo (patrulla y persecución comparten esto)
     private void FixedUpdate()
     {
         rb.linearVelocity = moveDirection * speed;
@@ -64,12 +70,10 @@ public class Enemy : MonoBehaviour
             animator.SetFloat("InputY", lastDirection.y);
         }
 
-        // El Idle usa estos dos parámetros
         animator.SetFloat("LastInputX", lastDirection.x);
         animator.SetFloat("LastInputY", lastDirection.y);
     }
 
-    // Convierte cualquier dirección en una de las 4 direcciones (arriba/abajo/izq/der)
     private static Vector2 SnapToCardinal(Vector2 dir)
     {
         return Mathf.Abs(dir.x) > Mathf.Abs(dir.y)
@@ -77,7 +81,6 @@ public class Enemy : MonoBehaviour
             : new Vector2(0f, Mathf.Sign(dir.y));
     }
 
-    // Estos eventos los dispara el CircleCollider2D (Is Trigger) del hijo "DetectionZone"
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
