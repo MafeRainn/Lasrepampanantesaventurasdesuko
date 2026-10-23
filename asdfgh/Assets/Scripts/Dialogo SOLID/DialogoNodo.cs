@@ -15,6 +15,8 @@ public class DialogoNodo
     public string textoDialogo;
     public Opcion[] opciones;
     public int siguienteNodoID = -1;
+
+    public bool TieneOpciones => opciones != null && opciones.Length > 0;
 }
 
 [System.Serializable]
