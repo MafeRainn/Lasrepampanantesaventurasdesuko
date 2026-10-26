@@ -1,39 +1,28 @@
-using System;
+using UnityEngine;
 
-public interface IEntradaAvance
+[System.Serializable]
+public class Opcion
 {
-    bool AvancePresionado();
+    public string texto;
+    public int proximoNodoID;
 }
 
-public interface ICatalogoDialogo
+[System.Serializable]
+public class DialogoNodo
 {
-    DialogoNodo ObtenerNodo(int id);
-    VozPersonaje ObtenerVoz(string nombrePersonaje);
+    public int id;
+    public string nombrePersonaje;
+    public string textoDialogo;
+    public Opcion[] opciones;
+    public int siguienteNodoID = -1;
+
+    public bool TieneOpciones => opciones != null && opciones.Length > 0;
 }
 
-public interface IVistaTexto
+[System.Serializable]
+public class VozPersonaje
 {
-    void Mostrar(bool visible);
-    void EstablecerPersonaje(string nombre);
-    char[] PrepararTexto(string texto);
-    void RevelarCaracteres(int cantidad);
-}
-
-public interface IVistaOpciones
-{
-    void MostrarOpciones(Opcion[] opciones, Action<int> alElegir);
-    void OcultarOpciones();
-}
-
-public interface ISonidoLetra
-{
-    void Reproducir(VozPersonaje voz);
-}
-
-public interface IEscritorTexto
-{
-    bool Escribiendo { get; }
-    void Escribir(string texto, VozPersonaje voz, Action alTerminar);
-    void Completar();
-    void Detener();
+    public string nombrePersonaje;
+    public AudioClip sonido;
+    public float pitch = 1f;
 }
