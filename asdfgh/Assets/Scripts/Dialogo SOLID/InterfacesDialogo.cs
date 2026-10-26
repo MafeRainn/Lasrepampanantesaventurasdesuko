@@ -37,4 +37,3 @@ public interface IEscritorTexto
     void Completar();
     void Detener();
 }
-
