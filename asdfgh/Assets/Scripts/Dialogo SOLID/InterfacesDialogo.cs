@@ -36,4 +36,5 @@ public interface IEscritorTexto
     void Escribir(string texto, VozPersonaje voz, Action alTerminar);
     void Completar();
     void Detener();
+    void Actualizar(float deltaTiempo);
 }

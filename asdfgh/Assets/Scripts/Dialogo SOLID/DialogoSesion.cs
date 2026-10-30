@@ -18,6 +18,8 @@ public class DialogoSesion
 
     public bool Activa => nodoActual != null;
 
+    public DialogoNodo UltimoNodo { get; private set; }
+
     public event Action EstadoCambiado;
 
     public void Iniciar(int id)
@@ -57,6 +59,7 @@ public class DialogoSesion
         }
 
         nodoActual = nodo;
+        UltimoNodo = nodo;
         vistaTexto.Mostrar(true);
         vistaTexto.EstablecerPersonaje(nodo.nombrePersonaje);
         vistaOpciones.OcultarOpciones();

@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private bool esEscenaDeJuego;
     [SerializeField] private string escenaJuego = "Juego";
     [SerializeField] private string escenaInicio = "Pantalladeinicio";
+    [SerializeField] private string escenaAnimacionInicial = "AnimacionInicial";
+
 
     [SerializeField] private GameObject panelMenu;
     [SerializeField] private GameObject panelOpciones;
@@ -129,7 +131,7 @@ public class UiManager : MonoBehaviour
 
     public void Empezar()
     {
-        CargarEscena(escenaJuego);
+        CargarEscena(escenaAnimacionInicial);
     }
 
     public void VolverAlMenu()

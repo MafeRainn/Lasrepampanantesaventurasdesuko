@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class EscritorTexto : MonoBehaviour, IEscritorTexto
@@ -8,9 +7,11 @@ public class EscritorTexto : MonoBehaviour, IEscritorTexto
 
     private IVistaTexto vista;
     private ISonidoLetra sonido;
-    private Coroutine rutina;
     private char[] letras;
+    private VozPersonaje voz;
     private Action alTerminar;
+    private int indice;
+    private float acumulado;
 
     public bool Escribiendo { get; private set; }
 
@@ -22,11 +23,45 @@ public class EscritorTexto : MonoBehaviour, IEscritorTexto
 
     public void Escribir(string texto, VozPersonaje voz, Action alTerminar)
     {
-        Detener();
+        this.voz = voz;
         this.alTerminar = alTerminar;
         letras = vista.PrepararTexto(texto);
+        indice = 0;
+        acumulado = 0f;
         Escribiendo = true;
-        rutina = StartCoroutine(Rutina(voz));
+
+        if (letras.Length == 0)
+        {
+            Terminar();
+        }
+    }
+
+    public void Actualizar(float deltaTiempo)
+    {
+        if (!Escribiendo)
+        {
+            return;
+        }
+
+        acumulado += deltaTiempo;
+
+        while (Escribiendo && acumulado >= segundosPorLetra)
+        {
+            acumulado -= segundosPorLetra;
+            indice++;
+            vista.RevelarCaracteres(indice);
+
+            char letra = letras[indice - 1];
+            if (!char.IsWhiteSpace(letra) && !char.IsPunctuation(letra))
+            {
+                sonido.Reproducir(voz);
+            }
+
+            if (indice >= letras.Length)
+            {
+                Terminar();
+            }
+        }
     }
 
     public void Completar()
@@ -42,36 +77,17 @@ public class EscritorTexto : MonoBehaviour, IEscritorTexto
 
     public void Detener()
     {
-        if (rutina != null)
-        {
-            StopCoroutine(rutina);
-        }
-
-        rutina = null;
         Escribiendo = false;
     }
 
-    private IEnumerator Rutina(VozPersonaje voz)
+    private void Update()
     {
-        for (int i = 1; i <= letras.Length; i++)
-        {
-            vista.RevelarCaracteres(i);
-
-            char letra = letras[i - 1];
-            if (!char.IsWhiteSpace(letra) && !char.IsPunctuation(letra))
-            {
-                sonido.Reproducir(voz);
-            }
-
-            yield return new WaitForSeconds(segundosPorLetra);
-        }
-
-        Terminar();
+        Actualizar(Time.deltaTime);
     }
 
     private void Terminar()
     {
-        Detener();
+        Escribiendo = false;
         alTerminar?.Invoke();
     }
 }
